@@ -1,0 +1,23 @@
+<%- include('partials/header', { title: 'Edit Recipe'}) %>
+
+<div class="text-center">
+  <h2>Edit Recipe</h2>
+</div>
+<br>
+<div class="text-center">
+  <form action="/editRecipe/<%= recipe.recipe_id %>" method="POST" enctype="multipart/form-data">
+    <label for="title">Recipe Name:</label><br>
+    <input type="text" id="title" name="title" value="<%= recipe.title %>" required><br><br>
+
+    <label for="ingredients">Ingredients:</label><br>
+    <input type="text" id="ingredients" name="ingredients" value="<%= recipe.ingredients %>" required><br><br>
+
+    <label for="instructions">Instructions:</label><br>
+    <input type="text" id="instructions" name="instructions" value="<%= recipe.instructions %>" required><br><br>
+
+    <label for="photo">Photo:</label><br>
+    <input type="file" id="photos" name="photos" accept="image/*"><br><br>
+
+    <button type="submit" class="btn btn-primary">Update Recipe</button>
+  </form>
+</div>

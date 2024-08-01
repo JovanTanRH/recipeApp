@@ -1,0 +1,30 @@
+<%- include('partials/header', { title: 'Add New Recipe'}) %>
+
+<div class="text-center">
+  <h2>Add New Recipe</h2>
+</div>
+<br>
+<div class="text-center">
+  <form action="/addRecipe" method="POST" enctype="multipart/form-data">
+    <label for="title">Recipe Name:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="ingredients">Ingredients:</label><br>
+    <input type="text" id="ingredients" name="ingredients" required><br><br>
+
+    <label for="instructions">Instructions:</label><br>
+    <input type="text" id="instructions" name="instructions" required><br><br>
+
+    <label for="photo">Photo:</label><br>
+    <input type="file" id="photos" name="photos" accept="image/*" required><br><br> 
+
+    <label for="user">Select User:</label><br>
+    <select id="user" name="user" required>
+      <% users.forEach(user => { %>
+        <option value="<%= user.username %>"><%= user.username %></option>
+      <% }) %>
+    </select><br><br>
+
+    <button type="submit" class="btn btn-primary">Add Recipe</button>
+  </form>
+</div>

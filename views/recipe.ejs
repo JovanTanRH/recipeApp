@@ -1,0 +1,14 @@
+<%- include('partials/header', { title: recipe.title}) %>
+
+<div class="container mt-3">
+  <div class="text-center">
+    <h2><%= recipe.title %></h2>
+  </div>
+  <p><strong>Added By:</strong> <%= recipe.added_by %></p>
+  <p><strong>Ingredients:</strong> <%= recipe.ingredients %></p>
+  <p><strong>Instructions:</strong> <%= recipe.instructions %></p>
+
+  <% if (recipe.photos) { %>
+    <img src="/images/<%= recipe.photos %>" alt="<%= recipe.title %>">
+  <% } %>
+</div>

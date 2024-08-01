@@ -1,0 +1,21 @@
+<%- include('partials/header', { title: 'Recipe Collection App'}) %>
+  <h2 class="text-center">Recipes</h2>
+  <div class="row">
+    <% recipes.forEach(recipe => { %>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <% if (recipe.photos) { %>
+            <img src="/images/<%= recipe.photos %>" class="card-img-top" alt="<%= recipe.title %>">
+          <% } %>
+          <div class="card-body">
+            <h5 class="card-title"><%= recipe.title %></h5>
+            <p class="card-text">
+              <a href="/recipe/<%= recipe.recipe_id %>" class="btn btn-primary">View Recipe</a>
+              <a href="/editRecipe/<%= recipe.recipe_id %>" class="btn btn-secondary">Edit Recipe</a>
+              <a href="/deleteRecipe/<%= recipe.recipe_id %>" class="btn btn-danger">Delete Recipe</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>

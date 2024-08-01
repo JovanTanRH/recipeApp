@@ -1,0 +1,10 @@
+<%- include('partials/header', { title: 'View Users'}) %>
+
+<div class="container mt-3">
+  <h2 class="text-center">Users</h2>
+  <ul class="list-group">
+    <% users.forEach(user => { %>
+      <li class="list-group-item"><%= user.username %> - <%= user.email %></li>
+    <% }) %>
+  </ul>
+</div>

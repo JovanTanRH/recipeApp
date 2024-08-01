@@ -1,0 +1,23 @@
+<%- include('partials/header', { title: 'Add New Collection' }) %>
+
+<div class="container mt-3">
+  <div class="text-center">
+    <h2>Add New Collection</h2>
+  </div>
+  <br>
+  <div class="text-center">
+    <form action="/addCollection" method="POST">
+      <label for="collection_name">Collection Name:</label><br>
+      <input type="text" id="collection_name" name="collection_name" required><br><br>
+
+      <label for="username">Username:</label><br>
+      <select id="username" name="username" required>
+        <% users.forEach(user => { %>
+          <option value="<%= user.username %>"><%= user.username %></option>
+        <% }) %>
+      </select><br><br>
+
+      <button type="submit" class="btn btn-primary">Add Collection</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<%- include('partials/header', { title: 'Collections' }) %>
+<div class="container mt-3">
+    <h2>Collections</h2>
+    <div class="row">
+        <% collections.forEach(collection => { %>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><%= collection.collection_name %></h5>
+                    <p class="card-text">Added by: <%= collection.username %></p>
+                    <form action="/addRecipeToCollection" method="POST">
+                        <div class="mb-3">
+                            <label for="recipeSelect-<%= collection.collection_id %>" class="form-label">Select Recipe:</label>
+                            <select class="form-select" id="recipeSelect-<%= collection.collection_id %>" name="recipe_id" required>
+                                <% recipes.forEach(recipe => { %>
+                                <option value="<%= recipe.recipe_id %>"><%= recipe.title %></option>
+                                <% }) %>
+                            </select>
+                            <input type="hidden" name="collection_id" value="<%= collection.collection_id %>">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Recipe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
